@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %> 
+<!-- the error will be flash in boilerplate only -->
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2>Signup on Wanderlust</h2>
+            <form action="/signup" method="POST" class="needs-validation" novalidate>
+
+                <!-- username -->
+                <!-- needs-validation (for the bootstrap validation) && novalidate means our validation shoulf not work -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username: </label>
+                    <input name="username" id="username" type="text" class="form-control" required>
+                    <div class="valid-feedback">Looks Good!</div>
+                </div>
+
+                <!-- email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input name="email" id="email" type="email" class="form-control" required>
+                </div>
+
+                <!-- password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password: </label>
+                    <input name="password" id="password" type="password" class="form-control" required>
+                    <div class="valid-feedback">Looks Good!</div>
+                </div>
+
+                <!-- button -->
+                 <button class="btn btn-dark" style="background-color: #fe424d; border: 2px solid #fe424d;">Sign Up</button>
+
+            </form>
+        </div>
+    </div>
+</body>

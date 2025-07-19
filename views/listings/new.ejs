@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3>Wanderlust Your Home</h3> 
+            <form action="/listings" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+                <!-- nonvalidate is the attribute of BOOTSTRAP which disable the default validation of html (i.e required will not work here...). -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title: </label>
+                    <input name="listing[title]" type="text" placeholder="Enter the title" class="form-control" required>
+                     <!--"required" means it is mendatory to fill this field  (under error handling)... -->
+                    <div class="valid-feedback">Title looks Good!</div>
+                    <div class="invalid-feedback">Title should be valid</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description: </label>
+                    <textarea name="listing[description]" placeholder="Enter description" class="form-control" required></textarea>
+                    <div class="valid-feedback">Description looks Good!</div>
+                    <div class="invalid-feedback">Description should be valid</div>
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Image URL: </label>
+                    <input name="listing[image]"  placeholder="Enter image url: "  type="text" class="form-control"> 
+                </div> -->
+                <div class="mb-3">
+                    <!-- <p style="display: flex; justify-content: center;">---------------------------------- OR ----------------------------------</p> -->
+                    <label for="image" class="form-label">Upload Image: </label>
+                    <input name="listing[image]" type="file" class="form-control" > 
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price: </label>
+                        <input name="listing[price]" placeholder="Enter the price"  class="form-control" required> 
+                        
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country: </label>
+                        <input name="listing[country]" placeholder="Enter the country" type="text" class="form-control" required> 
+                        
+                        <div class="invalid-feedback">Country name should be valid</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location: </label>
+                    <input name="listing[location]" placeholder="Enter the location" type="text" class="form-control" required> 
+                    
+                    <div class="invalid-feedback">Location should be valid</div>
+                </div>
+                
+                <div class="mb-3">
+                    <button class="btn btn-dark" style="background-color: #fe424d; border: 2px solid #fe424d;">Create</button>
+            </div>
+        
+        </div>
+        
+        
+    </form>
+    </div>
+    
+</body>

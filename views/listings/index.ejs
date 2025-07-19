@@ -1,0 +1,186 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <!-- no need of id in url -->
+    <!-- <form action="/Listings/new" method="GET"> 
+        <button>Create New</button>
+    </form> -->
+    <!-- <h3 style="padding-top: 30px;">All Listings</h3>  -->
+     
+     <div id="filters">
+        <div class="left">
+            <!-- <div class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountain</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castle</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing pools</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tents"></i></div>
+                <p>Camping</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tractor"></i></div>
+                <p>Farms</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-snowflake"></i></div>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-igloo"></i></div>
+                <p>Domes</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-ship"></i></div>
+                <p>Houseboat</p>
+            </div>  -->
+
+
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="d-flex gap-4 justify-content-center align-items-center flex-wrap py-3">
+                        <div class="filter">
+                            <div><i class="fa-solid fa-fire"></i></div>
+                            <p>Trending</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-bed"></i></div>
+                            <p>Rooms</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-mountain-city"></i></div>
+                            <p>Iconic Cities</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-mountain"></i></div>
+                            <p>Mountain</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-brands fa-fort-awesome"></i></div>
+                            <p>Castle</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-person-swimming"></i></div>
+                            <p>Amazing pools</p>
+                        </div>
+                        
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <div class="d-flex gap-4 justify-content-center align-items-center flex-wrap py-3">
+                        
+                        <div class="filter">
+                            <div><i class="fa-solid fa-tents"></i></div>
+                            <p>Camping</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-tractor"></i></div>
+                            <p>Farms</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-snowflake"></i></div>
+                            <p>Arctic</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-igloo"></i></div>
+                            <p>Domes</p>
+                        </div>
+                        <div class="filter">
+                            <div><i class="fa-solid fa-ship"></i></div>
+                            <p>Houseboat</p>
+                        </div> 
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev control-btn" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next control-btn" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+                  </div>
+            </div>
+        </div>
+        
+        
+     </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        
+        <% for( listing of allListings ) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card listing-card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div><!-- this will be over the image with the tag overlay -->
+                    <div class="card-body">
+                    <p class="card-text">
+                        <b><%= listing.title %></b> <br>
+                        <span style="color: #7a7979;"><%= listing.country %> </span><br>
+                        <span><i>&#8377; <%= listing.price.toLocaleString("en-IN") %> / Night</i></span>
+                        <i class="tax-info">&nbsp; + 18% GST (&#8377; <%= (listing.price * 0.18).toLocaleString("en-IN") %>)</i><br>
+                        <span class="tax-info1"><b>&#8377; <%= (listing.price + listing.price * 0.18).toLocaleString("en-IN") %></b></span>
+                    </p>
+                    </div>
+                </div>
+            </a>
+            
+        <% } %>
+    </div>
+
+    <script>
+        // this is the logic for tax-toggle button
+        let taxtoggle = document.getElementById("switchCheckDefault");
+        taxtoggle.addEventListener("click", ()=> {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            // this will store the array of +GST to the number of listings so we will use for loop
+            for(info of taxInfo){
+                if(info.style.display != 'inline'){
+                    info.style.display = 'inline';
+                }else{
+                    info.style.display = 'none';
+                }
+            }
+
+            let taxInfo1 = document.getElementsByClassName("tax-info1");
+            // this will store the array of +GST to the number of listings so we will use for loop
+            for(info of taxInfo1){
+                if(info.style.visibility != 'visible'){
+                    info.style.visibility = 'visible';
+                }else{
+                    info.style.visibility = 'hidden';
+                }
+            }
+        })
+    </script>
+
+</body>
+
