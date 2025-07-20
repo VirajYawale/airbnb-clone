@@ -47,3 +47,5 @@ Create a `.env` file and include:
 
 
 ![screenshot](/git-img/airbnb1.png)
+
+![screenshot](/git-img/airbnb2.png)
