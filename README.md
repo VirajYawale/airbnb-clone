@@ -46,4 +46,4 @@ Create a `.env` file and include:
 ### Screenshots
 
 
-![screenshot](MAJOR PROJECT 1/git-img/airbnb1.png)
+![screenshot](/git-img/airbnb1.png)
