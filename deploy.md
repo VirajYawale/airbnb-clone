@@ -51,3 +51,10 @@ step 6: shift all the stuff which should not be deploy on github in .env file
                 .env
                 node_modules/
                 **/.DS_Store    (those three files we donot want to push in repo (DS_Store is only in macbook))
+
+
+while deploying there will be error as the .env values are not known as well as the data on mongodb altas is accessed by the local system initially but while deployment it should be accessed by render
+
+1. we add environment variables
+
+2. in logs on render there will be IP address -- save it in mongodb atlas network access > add IP address
