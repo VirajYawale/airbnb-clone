@@ -43,3 +43,7 @@ The main goal of this project was to learn backend development, RESTful APIs, an
 
 Create a `.env` file and include:
 
+### Screenshots
+
+
+![screenshot](MAJOR PROJECT 1/git-img/airbnb1.png)
